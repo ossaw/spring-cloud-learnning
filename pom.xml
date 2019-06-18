@@ -8,5 +8,6 @@
   <description>spring-cloud-learnning</description>
   <modules>
   	<module>config-server</module>
+  	<module>license-service</module>
   </modules>
 </project>
