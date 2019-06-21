@@ -8,7 +8,7 @@ spring:
           enabled: false
         git:
           uri: https://github.com/ossaw/config-repo
-          search-paths: licensingservice, organizationservice
+          search-paths: licensingservice, organizationservice, eurekasvr
           username: ossaw
           password: asd741852963.+
 encrypt:
