@@ -2,3 +2,4 @@
 .settings
 config-server/target
 license-server/target
+.classpath

@@ -1,10 +1,15 @@
 server:
   port: 8888
 spring:
-  profiles:
-    active: native
   cloud:
     config:
       server:
-        native:
-          searchLocations: file:///D:/Workspaces/eclipse-jee-neon-3-win32-x86_64/spring-cloud-learnning/config-server/src/main/resources/config/licensingservice, file:///D:/Workspaces/eclipse-jee-neon-3-win32-x86_64/spring-cloud-learnning/config-server/src/main/resources/config/organizationservice
+        encrypt:
+          enabled: false
+        git:
+          uri: https://github.com/ossaw/config-repo
+          search-paths: licensingservice, organizationservice
+          username: ossaw
+          password: asd741852963.+
+encrypt:
+  key: JIANGHAO
