@@ -11,21 +11,31 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.github.license.client.OrganizationFeignClient;
 import com.github.license.config.ServiceConfig;
 import com.github.license.model.License;
+import com.github.license.model.Organization;
 import com.github.license.services.LicenseService;
 
 @RestController
 @RequestMapping(value = "v1/organizations/{organizationId}/licenses")
 public class LicenseServiceController {
     private final LicenseService licenseService;
-
     private final ServiceConfig serviceConfig;
+    @Autowired
+    private OrganizationFeignClient feignClient;
 
     @Autowired
     public LicenseServiceController(LicenseService licenseService, ServiceConfig serviceConfig) {
         this.licenseService = licenseService;
         this.serviceConfig = serviceConfig;
+    }
+
+    @RequestMapping(value = "/hello", method = RequestMethod.GET)
+    public Organization getOrganization(@PathVariable("organizationId") String organizationId) {
+        Organization organization = feignClient.getOrganization(organizationId);
+        System.out.println(organization);
+        return organization;
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
